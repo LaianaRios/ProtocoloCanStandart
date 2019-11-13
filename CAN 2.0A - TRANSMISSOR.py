@@ -25,7 +25,7 @@ while flag:
 
     print(("-")*150)
     # Envia uma mensagem para o servidor
-    msg = input("DIGITE A MENSAGEM EM BINÁRIO QUE VOCÊ DESEJA ENVIAR: ")
+    msg = input("DIGITE A MENSAGEM EM BINARIO QUE VOCÊ DESEJA ENVIAR: ")
 
     if(msg == "\x18"):
         flag = False
@@ -49,11 +49,9 @@ while flag:
     
     ans = str(encap) + ans + str(encap2)
     
-    print("MENSAGEM ENCAPSULADA:    ",ans)
+    print("MENSAGEM ENCAPSULADA E ENVIADA:    ",ans)
 
     tcp.send(ans.encode('UTF-8'))
-
-    print("MENSAGEM ENVIADA:\n")
     
     print (str(tcp.recv(1024),"UTF-8"))
 
