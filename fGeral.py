@@ -117,7 +117,7 @@ def crc(bits, n, divisor):
 def paridades(entrada):
     par = list(map(int, str(entrada)))
 
-    print("Paridades:",par)
+    print("PARIDADES:",par)
 
     posicoes_zero = []
     posicoes_um = []
@@ -134,14 +134,14 @@ def paridades(entrada):
                 if par[idx] == 1:
                     posicoes_zero.append(idx)
 
-    print("Posições onde deve inserir 1: {}".format(posicoes_um))
-    print("Posições onde deve inserir 0: {}".format(posicoes_zero))
+    print("POSICOES ONDE DEVE INSERIR UM 1: {}".format(posicoes_um))
+    print("POSICOES ONDE DEVE INSERIR UM 0: {}".format(posicoes_zero))
 
 
 def paridadesIN(entrada):
     par = list(map(int, str(entrada)))
 
-    print("Paridades:",par)
+    print("PARIDADES:",par)
 
     posicoes=[]
     elementos=[]
@@ -161,8 +161,8 @@ def paridadesIN(entrada):
                     posicoes.append(idx)
                     elementos.append(0)
 
-    print("Posições onde deve inserir: {}".format(posicoes))
-    print("elemtnso a serem inseridos: {}".format(elementos))
+    print("POSIÇÕES ONDE DEVE INSERIR: {}".format(posicoes))
+    print("ELEMENTOS A SEREM INSERIDOS: {}".format(elementos))
 
     saida = par
 
@@ -182,7 +182,7 @@ def paridadesOFF(entrada):
     print(entrada)
     par = list(map(int, str(entrada)))
 
-    print("Paridades:",par)
+    print("PARIDADES:",par)
 
     posicoes=[]
     elementos=[]
@@ -191,7 +191,7 @@ def paridadesOFF(entrada):
     for idx in range(len(par)):
 
         if idx >= 5:
-            print("entrou")
+            print("ENTROU")
             s = sum(par[idx - 4:idx])
 
             if s == 0:
@@ -203,12 +203,12 @@ def paridadesOFF(entrada):
                     posicoes.append(idx)
                     elementos.append(0)
 
-    print("Posições onde deve inserir: {}".format(posicoes))
-    print("elemtnso a serem inseridos: {}".format(elementos))
+    print("POSIÇÕES ONDE DEVE INSERIR: {}".format(posicoes))
+    print("ELEMENTOS A SEREM INSERIDOS: {}".format(elementos))
 
     saida = par
 
-    #Tira NO LUGAR
+    #Tira no lugar
     for x in posicoes:
         saida.pop(x+1)
     print(saida)
