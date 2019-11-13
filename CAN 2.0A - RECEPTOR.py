@@ -22,7 +22,7 @@ tcp.listen(1)
 
 while True:
     con, cliente = tcp.accept()
-    print ('Concetado por', cliente)
+    print ('Conectado por', cliente)
 
     while True:
         msg = con.recv(1024)
@@ -43,7 +43,7 @@ while True:
 
         ans = decodeData(str(msg, "ascii"), key)
         print("Remainder after decoding is->" + ans)
-        #-(Verifica de erro - CRC)-
+        #-(Verificação de erro - CRC)-
 
         temp = "0" * (len(key) - 1)
 
@@ -55,7 +55,7 @@ while True:
             con.send("Thank you for connecting -> Error in data".encode())
         #-(Comparar)-
 
-    print('Finalizando conexao do cliente', cliente)
+    print('Finalizando conexão do cliente', cliente)
 
     con.close()
 
