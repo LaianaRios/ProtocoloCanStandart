@@ -17,7 +17,7 @@ tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 dest = (HOST, PORT)
 tcp.connect(dest)
 
-print ("Para sair use CTRL+X\n")
+print ("PARA SAIR USE CTRL+X\n")
 
 flag = True
 
@@ -25,18 +25,13 @@ while flag:
 
     print(("-")*150)
     # Envia uma mensagem para o servidor
-    msg = input("Digite a mensagem em binário (0 ou 1) que você deseja enviar: ")
+    msg = input("DIGITE A MENSAGEM EM BINÁRIO QUE VOCÊ DESEJA ENVIAR: ")
 
     if(msg == "\x18"):
         flag = False
         break
 
-    print("Mensagem enviada:    ",msg)
-
-    # converte a mensagem em um codigo binario! (TIRAR DEPOIS)
-    msg = (''.join(format(ord(x), 'b') for x in msg))
-
-    print("Mensagem EM BINARIO: ", msg)
+    print("MENSAGEM ENVIADA:    ",msg)
 
     #ENTRA COM O VERIFICADOR DE SEGURANCA
     paridades(msg)
@@ -47,11 +42,15 @@ while flag:
     #CODIFICA O CODIGO
     ans = encodeData(msg, key)
 
-    print("Mensagem com CRC:    ",ans)
+    print("MENSAGEM COM CRC:    ",ans)
+    
+    encap = 0100110001000001000
+    
+    ans = str(encap) + ans
 
     tcp.send(ans.encode('UTF-8'))
 
-    print("Mensagem enviada\n")
+    print("MENSAGEM ENVIADA:\n")
 
 
     print("RESPOSTA:")
