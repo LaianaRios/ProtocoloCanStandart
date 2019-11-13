@@ -50,13 +50,13 @@ while True:
 
         print("MENSAGEM RECEBIDA: ", cliente, msg)
 
-        #-(Recebe os dados)-
+        # Recebe os dados
 
-        #-(Analisa a paridade)-
+        # Analisa a paridade 
 
-        #-(Retira os Bits)-
+        # Retira os Bits 
 
-        # Mudar a chave EM 16BITS
+        # Chave do CRC
         key = "1100010110011001"
 
         # TIRA O BIT INSERIDO!!!!
