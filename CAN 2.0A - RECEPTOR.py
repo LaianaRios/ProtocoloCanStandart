@@ -22,13 +22,13 @@ tcp.listen(1)
 
 while True:
     con, cliente = tcp.accept()
-    print ('Conectado por', cliente)
+    print ('CONECTADO POR', cliente)
 
     while True:
         msg = con.recv(1024)
         if not msg: break
 
-        print("Mensagem Recebida: ", cliente, msg)
+        print("MENSAGEM RECEBIDA: ", cliente, msg)
 
         #-(Recebe os dados)-
 
@@ -42,20 +42,20 @@ while True:
         # TIRA O BIT INSERIDO!!!!
 
         ans = decodeData(str(msg, "ascii"), key)
-        print("Remainder after decoding is->" + ans)
+        print("RESTANTE APÓS A DECODIFICAÇÃO: " + ans)
         #-(Verificação de erro - CRC)-
 
         temp = "0" * (len(key) - 1)
 
         if ans == temp:
-            print("Thank you Data -> <SAIDA>" + str(msg, "ascii") + "</SAIDA> Received No error FOUND")
-            con.send("Thank you for connecting -> Received No error FOUND".encode())
+            print("THANKS. DADOS: <SAIDA>" + str(msg, "ascii") + "</SAIDA> NENHUM ERRO ENCONTRADO")
+            con.send("OBRIGADA POR CONECTAR -> NENHUM ERRO ENCONTRADO".encode())
         else:
-            print("Error in data")
-            con.send("Thank you for connecting -> Error in data".encode())
+            print("ERRO NOS DADOS")
+            con.send("OBRIGADA POR CONECTAR -> ERRO NOS DADOS".encode())
         #-(Comparar)-
 
-    print('Finalizando conexão do cliente', cliente)
+    print('FINALIZANDO CONEXÃO DO CLIENTE', cliente)
 
     con.close()
 
