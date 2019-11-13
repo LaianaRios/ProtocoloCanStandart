@@ -31,7 +31,7 @@ while flag:
         flag = False
         break
 
-    print("MENSAGEM ENVIADA:    ",msg)
+    print("MENSAGEM RECEBIDA:    ",msg)
 
     #ENTRA COM O VERIFICADOR DE SEGURANCA
     paridades(msg)
@@ -48,12 +48,13 @@ while flag:
     encap2 = "011111111"
     
     ans = str(encap) + ans + str(encap2)
+    
+    print("MENSAGEM ENCAPSULADA:    ",ans)
 
     tcp.send(ans.encode('UTF-8'))
 
     print("MENSAGEM ENVIADA:\n")
-
-    print("RESPOSTA:")
+    
     print (str(tcp.recv(1024),"UTF-8"))
 
 tcp.close()
