@@ -44,7 +44,7 @@ while flag:
 
     print("MENSAGEM COM CRC:    ",ans)
     
-    encap = 0100110001000001000
+    encap = "0100110001000001000"
     
     ans = str(encap) + ans
 
