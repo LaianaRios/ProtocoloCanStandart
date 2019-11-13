@@ -45,13 +45,13 @@ while flag:
     print("MENSAGEM COM CRC:    ",ans)
     
     encap = "0100110001000001000"
+    encap2 = "011111111"
     
-    ans = str(encap) + ans
+    ans = str(encap) + ans + str(encap2)
 
     tcp.send(ans.encode('UTF-8'))
 
     print("MENSAGEM ENVIADA:\n")
-
 
     print("RESPOSTA:")
     print (str(tcp.recv(1024),"UTF-8"))
