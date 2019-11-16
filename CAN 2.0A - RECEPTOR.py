@@ -77,6 +77,7 @@ while True:
             
             # Manda o resultado para o cliente
             con.send("OBRIGADA POR CONECTAR -> NENHUM ERRO ENCONTRADO".encode())
+        
         else:
             print("ERRO NOS DADOS")
             
