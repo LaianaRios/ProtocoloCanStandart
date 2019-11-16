@@ -7,10 +7,10 @@
 
 #-------Esse código representa o cliente (Envio dos dados)----------
 
-# Importar o Socket para poder se comunicar com o servidor e obter uma resposta de volta
+# Importa o Socket para poder se comunicar com o servidor e obter uma resposta de volta
 import socket
 
-# Do arquivo fGeral irá importar todas as funções e anexar ao arquivo 
+# Do arquivo fGeral irá importar todas as funções
 from fGeral import *
 
 # Endereco IP do Servidor
