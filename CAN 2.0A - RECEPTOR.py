@@ -5,10 +5,10 @@
 # --------- Equipe: Laiana Rios, Robson Barbosa, Samuel Dias -------
 # --------------------- Código do Receptor -------------------------
 
-# Importar o Socket para poder se comunicar com o servidor
+# Importa o Socket para poder se comunicar com o servidor
 import socket
 
-# Do arquivo fGeral irá importar todas as funções e anexar ao arquivo 
+# Do arquivo fGeral irá importar todas as funções
 from fGeral import *
 
 # Endereco IP do Servidor
@@ -40,6 +40,7 @@ while True:
     print ('CONECTADO POR', cliente)
 
     # Recebimento dos dados
+    # Pode receber mais de uma mensagem do mesmo cliente
     while True:
         
         # 1024 = Faixa de comunicação
@@ -59,24 +60,32 @@ while True:
         # Chave do CRC
         key = "1100010110011001"
 
-        # TIRA O BIT INSERIDO!!!!
-
+        # Retira o bit inserido
+        
+        # Converte do binário de máquina para uma string
         ans = decodeData(str(msg, "ascii"), key)
         print("RESTANTE APÓS A DECODIFICAÇÃO: " + ans)
-        #-(Verificação de erro - CRC)-
+        
+        # Realiza a verificação de erro - CRC
 
+        # Contabiliza quantos zeros precisa ter na resposta
         temp = "0" * (len(key) - 1)
-
+        
+        # Se o ans for igual ao temp, printa a resposta verdadeira
         if ans == temp:
             print("THANKS. DADOS: <SAIDA>" + str(msg, "ascii") + "</SAIDA> NENHUM ERRO ENCONTRADO")
+            
+            # Manda o resultado para o cliente
             con.send("OBRIGADA POR CONECTAR -> NENHUM ERRO ENCONTRADO".encode())
         else:
             print("ERRO NOS DADOS")
+            
+            # Manda o resultado para o cliente
             con.send("OBRIGADA POR CONECTAR -> ERRO NOS DADOS".encode())
-        #-(Comparar)-
-
+        
     print('FINALIZANDO CONEXÃO DO CLIENTE', cliente)
 
+    # Encerra a conexão com o servidor
     con.close()
 
 print("SERVER FECHADO")
